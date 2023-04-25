@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpFoundation\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,8 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.welcome');
 });
 Route::get('/home', function () {
-    return view('home');
+    return view('pages.home');
 });
+
+Route::get('/about', function () {
+    return view('about');
+});
+
+$closure = function () {
+    return "HEllo, world";
+};
+
+
+Route::get('/hello/{num}', function ($id) {
+    return response('id' . $id . "num");
+});
+
+Route::get('/gallery', fn () => view('pages.gallery'));
