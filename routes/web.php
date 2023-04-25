@@ -15,23 +15,20 @@ use Symfony\Component\HttpFoundation\Request;
 */
 
 Route::get('/', function () {
-    return view('pages.welcome');
+    return view('welcome');
 });
 Route::get('/home', function () {
-    return view('pages.home');
+    return view('home');
 });
 
 Route::get('/about', function () {
     return view('about');
 });
 
-$closure = function () {
-    return "HEllo, world";
-};
-
 
 Route::get('/hello/{num}', function ($id) {
     return response('id' . $id . "num");
 });
 
-Route::get('/gallery', fn () => view('pages.gallery'));
+Route::get('/gallery', fn () => view('gallery'));
+Route::get('/pricing', fn () => view('pricing'));

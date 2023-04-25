@@ -1,1 +1,0 @@
-<h3>Hello from the about page</h3>
