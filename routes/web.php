@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -32,3 +33,17 @@ Route::get('/hello/{num}', function ($id) {
 
 Route::get('/gallery', fn () => view('gallery'));
 Route::get('/pricing', fn () => view('pricing'));
+
+Route::get('/booking/{booking:type}', function (Booking $booking) {
+    return view('booking', [
+        'booking' => $booking
+    ]);
+    // dd($booking);
+});
+
+Route::get('/bookings', fn () => view(
+    'bookings',
+    [
+        'bookings' => Booking::all()
+    ]
+));
