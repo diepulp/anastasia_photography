@@ -1,5 +1,5 @@
 <x-layout>
-    @include('/partials._nav')
+
     <!-- Container for demo purpose -->
 <div class="container px-6 mx-auto my-24">
 
@@ -170,7 +170,4 @@
 
 </div>
 <!-- Container for demo purpose -->
-
-  
-    <x-footer />
 </x-layout>

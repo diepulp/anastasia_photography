@@ -9,14 +9,14 @@
       </style>
   
       <h2 class="mb-12 text-3xl font-bold text-center">
-        Projects we are<u class="text-blue-600"> proud of</u>
+        My Projects<u class="text-blue-600"> </u>
       </h2>
   
       <div class="grid gap-6 lg:grid-cols-3">
         <div class="relative overflow-hidden bg-no-repeat bg-cover rounded-lg shadow-lg zoom"
           style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="dark">
-          <img src="{{asset('images/nika.jpg')}}"
-            class="w-full align-middle transition duration-300 ease-linear" />
+          <img src="{{URL('images/nika.jpg')}}"
+          class="block object-cover object-center w-full h-full rounded-lg" />
           <a href="#!">
             <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full overflow-hidden bg-fixed"
               style="background-color: rgba(0, 0, 0, 0.3)">

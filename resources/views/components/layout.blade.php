@@ -17,6 +17,8 @@
 </head>
 
 <body>
+    <x-nav />
    {{ $slot }}
+   <x-footer />
 </body>
 </html>

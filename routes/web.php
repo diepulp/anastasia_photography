@@ -26,6 +26,10 @@ Route::get('/about', function () {
     return view('about');
 });
 
+Route::get('/contact', function () {
+    return view('contact');
+});
+
 
 Route::get('/hello/{num}', function ($id) {
     return response('id' . $id . "num");
