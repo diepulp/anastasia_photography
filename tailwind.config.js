@@ -8,6 +8,7 @@ module.exports = {
     // The theme section is where you define your color palette,
     //  fonts, type scale, border sizes, breakpoints — anything related to the visual design of your site
     theme: {
+        dark: "class",
         // colors: {
         //     blue: "#1fb6ff",
         //     purple: "#7e5bef",
@@ -23,6 +24,11 @@ module.exports = {
             sans: ["Graphik", "sans-serif"],
             serif: ["Merriweather", "serif"],
             forum: ["Forum, serif"],
+            fontFamily: {
+                sans: ["Roboto", "sans-serif"],
+                body: ["Roboto", "sans-serif"],
+                mono: ["ui-monospace", "monospace"],
+              },
         },
         extend: {},
     },

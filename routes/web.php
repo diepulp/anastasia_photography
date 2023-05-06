@@ -51,3 +51,7 @@ Route::get('/bookings', fn () => view(
         'bookings' => Booking::all()
     ]
 ));
+
+Route::get('/elements', function () {
+    return view('elements');
+});
