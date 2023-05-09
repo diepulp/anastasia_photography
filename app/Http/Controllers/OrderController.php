@@ -33,12 +33,13 @@ class OrderController extends Controller
         // Validate Form fieds
 
         // dd($request->all());
-        // $formFieds = $request->validate([
-        //     'name' => 'required',
-        //     'email' => ['required', 'email'],
-        //     // 'message' => 'min:5|max:500',
-        //     // 'session_type' => 'array|required|max:3',
-        // ]);
+        $formFieds = $request->validate([
+            'name' => 'required',
+            'email' => ['required', 'email'],
+            'message' => 'max:500',
+            'session_type' => 'array|required|max:3',
+            'datepicker' => ['required', 'date']
+        ]);
 
         return redirect('/confirm');
     }
