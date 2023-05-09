@@ -16,8 +16,8 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('email');
-            $table->text('message');
-            $table->boolean('send_message_copy');
+            $table->text('message')->nullable();
+            $table->boolean('send_message_copy')->boolean;
             $table->string('session_type');
             $table->timestamp('submitted_on');
         });
