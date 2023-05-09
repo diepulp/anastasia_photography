@@ -21,8 +21,8 @@ class OrderFactory extends Factory
         return [
             'name' => fake()->name,
             'email' => fake()->unique()->safeEmail,
-            'message' => fake()->text(50),
-            'send_message_copy' => fake()->boolean(),
+            'message' => $this->faker->sentence,
+            'send_message_copy' => $this->faker->boolean(),
             'session_type' => $this->getType(),
             'submitted_on' => Carbon::now()
         ];

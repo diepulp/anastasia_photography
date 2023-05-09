@@ -77,16 +77,17 @@
                   </p>
                 </div>
               </div>
-              <button type="button"
+              <a type="button"
+                href='/contact'
                 class="inline-block py-3 text-sm font-medium leading-snug text-white uppercase transition duration-150 ease-in-out bg-gray-800 rounded shadow-md px-7 hover:bg-gray-900 hover:shadow-lg focus:bg-gray-900 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-gray-900 active:shadow-lg"
                 data-mdb-ripple="true" data-mdb-ripple-color="light">
-                Buy now
-              </button>
+                Contact me
+            </a>
             </div>
           </div>
   
           <div>
-            <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/132.jpg" class="w-full rounded-lg shadow-lg"
+            <img src="https://cdn.pixabay.com/photo/2014/11/13/17/04/heart-529607__480.jpg" class="w-full rounded-lg shadow-lg"
               alt="" />
           </div>
         </div>

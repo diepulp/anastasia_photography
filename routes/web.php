@@ -1,17 +1,15 @@
 <?php
 
+use App\Models\Order;
 use App\Models\Booking;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\OrderController;
 use Symfony\Component\HttpFoundation\Request;
 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
 |
 */
 
@@ -26,17 +24,18 @@ Route::get('/about', function () {
     return view('about');
 });
 
-Route::get('/contact', function () {
-    return view('contact');
-});
-
-
-Route::get('/hello/{num}', function ($id) {
-    return response('id' . $id . "num");
+Route::get('/confirm', function () {
+    return view('confirm');
 });
 
 Route::get('/gallery', fn () => view('gallery'));
 Route::get('/pricing', fn () => view('pricing'));
+
+Route::get('/contact', [OrderController::class, 'create']);
+Route::post('/contact', [OrderController::class, 'store']);
+
+
+
 
 Route::get('/booking/{booking:type}', function (Booking $booking) {
     return view('booking', [
@@ -45,13 +44,10 @@ Route::get('/booking/{booking:type}', function (Booking $booking) {
     // dd($booking);
 });
 
+
 Route::get('/bookings', fn () => view(
     'bookings',
     [
-        'bookings' => Booking::all()
+        'bookings' => Order::all()
     ]
 ));
-
-Route::get('/elements', function () {
-    return view('elements');
-});

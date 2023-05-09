@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Orders;
 use Illuminate\Http\Request;
 
-class OrdersController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+        // show all orders
+
     }
 
     /**
@@ -21,6 +21,7 @@ class OrdersController extends Controller
     public function create()
     {
         //
+        return view('/contact');
     }
 
     /**
@@ -28,21 +29,33 @@ class OrdersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        // Validate Form fieds
+
+        // dd($request->all());
+        // $formFieds = $request->validate([
+        //     'name' => 'required',
+        //     'email' => ['required', 'email'],
+        //     // 'message' => 'min:5|max:500',
+        //     // 'session_type' => 'array|required|max:3',
+        // ]);
+
+        return redirect('/confirm');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Orders $orders)
+    public function show()
     {
         //
+        return view('/components/confirmation');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Orders $orders)
+    public function edit(string $id)
     {
         //
     }
@@ -50,7 +63,7 @@ class OrdersController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Orders $orders)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -58,7 +71,7 @@ class OrdersController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Orders $orders)
+    public function destroy(string $id)
     {
         //
     }
