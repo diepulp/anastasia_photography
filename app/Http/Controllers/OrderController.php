@@ -33,43 +33,47 @@ class OrderController extends Controller
 
         // Validate Form fieds
 
-        // dd($request->all());
         $formFieds = $request->validate([
-            'name' => 'required',
-            'email' => ['required', 'email'],
-            'message' => 'max:500',
-            'session_type' => 'array|required|max:3',
-            'datepicker' => ['required', 'date']
+            // 'name' => 'required',
+            // 'email' => ['required', 'email'],
+            // 'message' => 'max:500',
+            // 'session_type' => 'array|required|max:3',
+            // 'datepicker' => ['required', 'date']
         ]);
 
         $sessionType = $request->session_type;
         $session_type_string = "";
 
         foreach ($sessionType as $type) {
-            $session_type_string . ", " . $type;
+            $session_type_string = $session_type_string  . " " . $type;
         }
 
+        // dd($request->all());
         $order = new Order();
         $order->name = $request->name;
         $order->session_type = $session_type_string;
         $order->email = $request->email;
         $order->message = $request->message;
+        $order->session_date = $request->datepicker;
+
 
 
         $order->save();
 
         //TODO: send a confirmation email
 
-        return redirect('/confirm');
+        return redirect()->route('confirm', [$order]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show()
+    public function show(Order $order)
     {
         //
-        return view('/components/confirmation');
+        return view('/confirm', [
+            'order' => $order
+        ]);
     }
 
     /**

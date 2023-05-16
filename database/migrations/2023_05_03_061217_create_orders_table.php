@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('message')->nullable();
             $table->boolean('send_message_copy')->boolean;
             $table->string('session_type');
-            $table->timestamp('submitted_on');
+            $table->string('session_date');
         });
     }
 
