@@ -7,6 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Address;
 use Illuminate\Queue\SerializesModels;
 
 class OrderShipped extends Mailable
@@ -22,22 +23,25 @@ class OrderShipped extends Mailable
     }
 
     /**
-     * Get the message envelope.
+     * Get the message envelope. object that defines the subject and,
+     * sometimes, the recipients of the message
      */
     public function envelope(): Envelope
     {
         return new Envelope(
+            from: new Address("diepulp@gmail.com", "Vladimir Ivanov"),
             subject: 'Order Shipped',
         );
     }
 
     /**
      * Get the message content definition.
+     * Generates the blade template to genereate the message content
      */
     public function content(): Content
     {
         return new Content(
-            view: 'view.name',
+            view: 'emails.order',
         );
     }
 

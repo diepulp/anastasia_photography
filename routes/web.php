@@ -2,6 +2,8 @@
 
 use App\Models\Order;
 use App\Models\Booking;
+use App\Mail\OrderShipped;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,6 +23,7 @@ Route::get('/home', function () {
 });
 
 Route::get('/about', function () {
+    Mail::to('diepulp@gmail.com')->send(new OrderShipped());
     return view('about');
 });
 
