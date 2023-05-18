@@ -1,4 +1,4 @@
 <x-layout>
-<x-confirmation>
-</x-confirmation>
+    <x-confirmation :order="$order">
+    </x-confirmation>
 </x-layout>

@@ -16,7 +16,7 @@
         <div class="relative overflow-hidden bg-no-repeat bg-cover rounded-lg shadow-lg zoom"
           style="background-position: 50%;" data-mdb-ripple="true" data-mdb-ripple-color="dark">
           <img src="{{URL('images/nika.jpg')}}"
-          class="block object-cover object-center w-full h-full rounded-lg" />
+          class="block object-cover object-center w-full h-80 rounded-lg" />
           <a href="#!">
             <div class="absolute top-0 bottom-0 left-0 right-0 w-full h-full overflow-hidden bg-fixed"
               style="background-color: rgba(0, 0, 0, 0.3)">

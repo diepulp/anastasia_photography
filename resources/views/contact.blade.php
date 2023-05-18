@@ -29,6 +29,7 @@
                     id="name"
                     placeholder="Name"
                     name="name"
+                    value="{{old('name')}}"
                   />
                   @error('name')
                     <p class="text-xs text-red-500">{{$message}}</p>
@@ -41,6 +42,7 @@
                     id="email"
                     placeholder="Email address"
                     name="email"
+                    value="{{old('email')}}"
                   />
                   @error('email')
                   <p class="text-xs text-red-500">{{$message}}</p>
@@ -61,6 +63,7 @@
                     class="w-4 h-4 mt-1 mr-2 align-top transition duration-200 bg-white bg-center bg-no-repeat bg-contain border border-gray-300 rounded-sm appearance-none cursor-pointer form-check-input checked:bg-blue-600 checked:border-blue-600 focus:outline-none"
                     id="sendCopy"
                     name="sendCopy"
+                   
                     
                   />
                   <label class="inline-block text-gray-800 form-check-label" for="sendCopy"
@@ -113,6 +116,7 @@
                     data-te-input-wrapper-init>
                     <input
                       type="text"
+                      value="{{old('datepicker')}}"
                       name='datepicker'
                       id="datepicker"
                       class="peer block min-h-[auto] w-full rounded border-0 bg-transparent px-3 py-[0.32rem] leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder:opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder:opacity-100 motion-reduce:transition-none dark:text-neutral-200 dark:placeholder:text-neutral-200 dark:peer-focus:text-primary [&:not([data-te-input-placeholder-active])]:placeholder:opacity-0"
@@ -131,7 +135,7 @@
                   type="submit"
                   class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
                 >
-                  Place order
+                  Book a Photo Session
                 </button>
               </form>
               </div>

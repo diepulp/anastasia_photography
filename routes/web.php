@@ -23,7 +23,6 @@ Route::get('/home', function () {
 });
 
 Route::get('/about', function () {
-    Mail::to('diepulp@gmail.com')->send(new OrderShipped());
     return view('about');
 });
 

@@ -34,11 +34,11 @@ class OrderController extends Controller
         // Validate Form fieds
 
         $formFieds = $request->validate([
-            // 'name' => 'required',
-            // 'email' => ['required', 'email'],
-            // 'message' => 'max:500',
-            // 'session_type' => 'array|required|max:3',
-            // 'datepicker' => ['required', 'date']
+            'name' => 'required',
+            'email' => ['required', 'email'],
+            'message' => 'max:500',
+            'session_type' => 'array|required|max:3',
+            'datepicker' => ['required']
         ]);
 
         $sessionType = $request->session_type;
@@ -61,6 +61,8 @@ class OrderController extends Controller
         $order->save();
 
         //TODO: send a confirmation email
+        // Mail::to('diepulp@gmail.com')->send(new OrderShipped());
+
 
         return redirect()->route('confirm', [$order]);
     }
