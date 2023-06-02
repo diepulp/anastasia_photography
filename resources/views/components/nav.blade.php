@@ -90,10 +90,45 @@
                 >Contact</a
               >
             </li>
+
           </ul>
+
+          {{-- Login links --}}
+          <ul class="flex space-x-6 mr-6 text-lg">
+
+{{-- If logged in.. --}}
+        @auth
+        <li>
+          <span class="font-thin underline underline-offset-4">
+            Welcome, {{auth()->user()->name}}
+          </span>
+        </li>
+        {{-- <li>
+          <a href="/plans/manage" class="hover:text-laravel"><i class="fa-solid fa-gear"></i> Manage Plans</a>
+        </li> --}}
+        <li>
+          <form class="inline" method="POST" action="/logout">
+            @csrf
+            <button type="submit">
+              <i class="fa-solid fa-door-closed"></i> Logout
+            </button>
+          </form>
+        </li>
+  {{-- Not logged in --}}
+        @else
+        <li>
+          <a href="/register" class="hover:text-green-600"><i class="fa-solid fa-user-plus"></i> Register</a>
+        </li>
+        <li>
+          <a href="/login" class="hover:text-green-600"><i class="fa-solid fa-arrow-right-to-bracket "></i> Login</a>
+        </li>
+        @endauth
+      </ul>
         </div>
       </div>
     </nav>
+
+    
   
    
   </header>

@@ -30,7 +30,7 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-
+        dd($request->cars);
         // Validate Form fieds
 
         $formFieds = $request->validate([
@@ -55,6 +55,7 @@ class OrderController extends Controller
         $order->email = $request->email;
         $order->message = $request->message;
         $order->session_date = $request->datepicker;
+        // $order->send_message_copy = $request->sendCopy;
 
 
 

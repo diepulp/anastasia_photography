@@ -9,4 +9,10 @@ class Order extends Model
 {
     use HasFactory;
     protected $guarded = [];
+
+    function nowTime()
+    {
+        $data = now();
+        base_path();
+    }
 }

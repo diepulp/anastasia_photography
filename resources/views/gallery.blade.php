@@ -1,7 +1,7 @@
 <x-layout>
-
   
-    <div class="container px-5 py-2 mb-20 text-center lg:px-32 lg:pt-24">
+  
+    <div class="container px-5 py-2 mb-20 text-center lg:px-32 lg:pt-24 ">
 
     <h1 class="mb-16 text-4xl font-semibold underline underline-offset-8">My Gallery</h1>
         <div class="flex flex-wrap -m-1 md:-m-2">
