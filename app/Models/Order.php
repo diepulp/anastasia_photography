@@ -15,4 +15,8 @@ class Order extends Model
         $data = now();
         base_path();
     }
+
+    function users(){
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

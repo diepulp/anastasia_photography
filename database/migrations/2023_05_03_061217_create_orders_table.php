@@ -13,13 +13,15 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
             $table->string('name');
             $table->string('email');
             $table->text('message')->nullable();
-            $table->boolean('send_message_copy')->boolean;
+            $table->boolean('send_message_copy')->boolean();
             $table->string('session_type');
             $table->string('session_date');
+            $table->string('submitted_on');
         });
     }
 

@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use \App\Models\Order;
+use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use \App\Models\Order;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -20,6 +21,14 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
-        Order::factory(5)->create();
+        // Order::factory(5)->create();
+
+        $user = User::factory()->create([
+            'name' => "Vladimir Ivanov",
+            'email' => 'mail@gmail.com'
+        ]);
+        Order::factory(10)->create([
+            'user_id' => $user->id
+        ]);
     }
 }
