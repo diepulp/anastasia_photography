@@ -18,9 +18,9 @@ return new class extends Migration
             $table->string('name');
             $table->string('email');
             $table->text('message')->nullable();
-            $table->boolean('send_message_copy')->boolean();
+            $table->string('send_message_copy')->boolean();
             $table->string('session_type');
-            $table->string('session_date');
+            $table->string('datepicker');
             $table->string('submitted_on');
         });
     }

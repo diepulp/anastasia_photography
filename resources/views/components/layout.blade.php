@@ -55,13 +55,19 @@
 </head>
 
 <body class="h-screen">
+<div class="sticky top-0">
+  {{-- <a href="#footer">Go to footer</a> --}}
+
+</div>
   <x-nav />
   {{ $slot }}
 
-
+  <x-flash />
   <x-footer />
 
   <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
+
+  
 
 </body>
 

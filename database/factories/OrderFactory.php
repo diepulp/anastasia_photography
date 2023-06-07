@@ -25,8 +25,8 @@ class OrderFactory extends Factory
             'send_message_copy' => $this->faker->boolean(),
             'session_type' => $this->getType(),
             'submitted_on' => Carbon::now(),
-            'session_date' => Carbon::now(),
-            
+            'datepicker' => Carbon::now(),
+
         ];
     }
 

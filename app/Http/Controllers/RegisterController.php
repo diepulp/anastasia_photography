@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class RegisterController extends Controller
 {
@@ -28,10 +29,14 @@ class RegisterController extends Controller
 
         //Create User
         $user = User::create($formFields);
+        $name = $request->name;
 
+        // session()->flash('success', $name . ", our account had been created");
+    
         // Login
         auth()->login($user);
-        return redirect('/')->with('message', 'User created and logged in');
+
+        return redirect('/')->with('message', $name . ', your account has been created');
     }
 
 
@@ -52,7 +57,7 @@ class RegisterController extends Controller
         return view('register.login');
     }
 
-    //Authenticate user
+  
     //Authenticate user
     public function authenticate(Request $request)
     {

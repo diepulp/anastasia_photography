@@ -17,10 +17,18 @@
         <div class="grid items-center lg:grid-cols-2">
           <div class="mb-12 md:mt-12 lg:mt-0 lg:mb-0">
             <div class="block px-6 py-12 rounded-lg shadow-lg md:px-12 lg:-mr-14" style="background: hsla(0, 0%, 100%, 0.55); backdrop-filter: blur(30px)">
-              <h2 class="mb-12 text-3xl font-bold">Contact Anastasiya</h2>
+              <h2 class="mb-12 text-3xl font-bold">Book a Photo Session</h2>
               <form method="POST" action="/contact">
                 @csrf
 
+               @auth
+                <section class="my-3">
+                  <span class="font-bold ">
+                    Place your order, {{auth()->user()->name}}
+                  </span>
+                </section>
+
+                @else
                 <div class="mb-6 form-group">
                   <input type="text" class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="name" placeholder="Name" name="name" value="{{old('name')}}" />
                   @error('name')
@@ -33,6 +41,7 @@
                   <p class="text-xs text-red-500">{{$message}}</p>
                   @enderror
                 </div>
+             @endauth
                 <div class="mb-6 form-group">
                   <textarea class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="message" name="message" rows="3" placeholder="Message"></textarea>
                 </div>
@@ -44,7 +53,7 @@
                 <!--Default checkbox-->
                 <div class="container mb-3">
 
-                  <h3 class="mb-3 font-semibold underline underline-offset-4">What type of photosession are you interested in?</h3>
+                  <h3 class="mb-3 font-semibold underline underline-offset-4">What type of photo session are you interested in?</h3>
                   <div class="mb-[0.125rem] block min-h-[1.5rem] pl-[1.5rem]">
                     <input class="session_type relative float-left -ml-[1.5rem] mr-[6px] mt-[0.15rem] h-[1.125rem] w-[1.125rem] appearance-none rounded-[0.25rem] border-[0.125rem] border-solid border-neutral-300 outline-none before:pointer-events-none before:absolute before:h-[0.875rem] before:w-[0.875rem] before:scale-0 before:rounded-full before:bg-transparent before:opacity-0 before:shadow-[0px_0px_0px_13px_transparent] before:content-[''] checked:border-primary checked:bg-primary checked:before:opacity-[0.16] checked:after:absolute checked:after:-mt-px checked:after:ml-[0.25rem] checked:after:block checked:after:h-[0.8125rem] checked:after:w-[0.375rem] checked:after:rotate-45 checked:after:border-[0.125rem] checked:after:border-l-0 checked:after:border-t-0 checked:after:border-solid checked:after:border-white checked:after:bg-transparent checked:after:content-[''] hover:cursor-pointer hover:before:opacity-[0.04] hover:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:shadow-none focus:transition-[border-color_0.2s] focus:before:scale-100 focus:before:opacity-[0.12] focus:before:shadow-[0px_0px_0px_13px_rgba(0,0,0,0.6)] focus:before:transition-[box-shadow_0.2s,transform_0.2s] focus:after:absolute focus:after:z-[1] focus:after:block focus:after:h-[0.875rem] focus:after:w-[0.875rem] focus:after:rounded-[0.125rem] focus:after:content-[''] checked:focus:before:scale-100 checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca] checked:focus:before:transition-[box-shadow_0.2s,transform_0.2s] checked:focus:after:-mt-px checked:focus:after:ml-[0.25rem] checked:focus:after:h-[0.8125rem] checked:focus:after:w-[0.375rem] checked:focus:after:rotate-45 checked:focus:after:rounded-none checked:focus:after:border-[0.125rem] checked:focus:after:border-l-0 checked:focus:after:border-t-0 checked:focus:after:border-solid checked:focus:after:border-white checked:focus:after:bg-transparent dark:border-neutral-600 dark:checked:border-primary dark:checked:bg-primary dark:focus:before:shadow-[0px_0px_0px_13px_rgba(255,255,255,0.4)] dark:checked:focus:before:shadow-[0px_0px_0px_13px_#3b71ca]" type="checkbox" value="couples" name="session_type[]" id="couples" />
                     <label class="inline-block pl-[0.15rem] hover:cursor-pointer" for="couples">
@@ -73,16 +82,7 @@
                 @error('datepicker')
                 <p class="text-xs text-red-500">{{$message}}</p>
                 @enderror
-                <div>
-                  <label for="cars">Choose a Session Type:</label>
-
-                  <selec name="cars" id="cars">
-                    <option value="volvo" name="cars[]">Volvo</option>
-                    <option value="saab" name="cars[]">Saab</option>
-                    <option value="opel" name="cars[]">Opel</option>
-                    <option value="audi" name="cars[]">Audi</option>
-                    </select>
-                </div>
+                
                 <button type="submit" class="w-full px-6 py-2.5 bg-blue-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out">
                   Book a Photo Session
                 </button>
@@ -103,10 +103,7 @@
 
   </section>
 
-  <!-- Section: Design Block -->
-
   <x-map />
-
 
 
 

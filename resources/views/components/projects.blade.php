@@ -129,6 +129,5 @@
       </div>
   
     </section>
-    <!-- Section: Design Block -->
     
   </div>

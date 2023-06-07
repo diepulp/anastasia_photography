@@ -1,4 +1,4 @@
-<footer class="text-center text-white bg-neutral-200 dark:bg-neutral-600">
+<footer id="footer" class="text-center text-white bg-neutral-200 dark:bg-neutral-600">
     <div class="container pt-9">
       <div class="flex justify-center mb-9">
         <a href="#!" class="mr-9 text-neutral-800 dark:text-neutral-200">

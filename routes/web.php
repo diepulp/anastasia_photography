@@ -3,6 +3,7 @@
 use App\Models\Order;
 use App\Models\Booking;
 use App\Mail\OrderShipped;
+use Illuminate\Mail\Markdown;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
@@ -23,9 +24,14 @@ Route::get('/home', function () {
     return view('home');
 });
 
+//Mail MarkDown Test in the browser
+Route::get('/mail/', function () {
+    $markdown = new Markdown(view(), config('mail.markdown'));
+
+    return $markdown->render('emails.orders.shipped');
+});
+
 Route::get('/about', function () {
-    $now = now();
-    var_dump($now);
     return view('about');
 });
 
@@ -41,7 +47,7 @@ Route::post('/contact', [OrderController::class, 'store']);
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest'); //only for users that are not registered
 
 // Create new user
-Route::post('register', [RegisterController::class, 'store']);
+Route::post('register', [RegisterController::class, 'store'])->middleware('guest');
 
 // Logout
 Route::post('/logout', [RegisterController::class, 'logout']);

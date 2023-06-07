@@ -2,24 +2,30 @@
 
 namespace App\Mail;
 
+use App\Models\Order;
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
-use Illuminate\Mail\Mailables\Content;
-use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Mail\Mailables\Address;
+use Illuminate\Mail\Mailables\Content;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Envelope;
+use Illuminate\Mail\Mailables\Attachment;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class OrderShipped extends Mailable
 {
     use Queueable, SerializesModels;
+    public $order;
+    public $attachment;
 
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(Order $order, $attachment)
     {
         //
+        $this->order = $order;
+        $this->attachment = $attachment;
     }
 
     /**
@@ -41,8 +47,12 @@ class OrderShipped extends Mailable
     public function content(): Content
     {
         return new Content(
-        
-            view: 'emails.order',
+            markdown: 'emails.orders.shipped',
+            with: [
+                'url' => 'www.google.com',
+                'order' => $this->order,
+                'attachment' =>$this->attachment
+            ]
         );
     }
 
@@ -53,6 +63,10 @@ class OrderShipped extends Mailable
      */
     public function attachments(): array
     {
-        return [];
+        return [
+            Attachment::fromPath($this->attachment)
+                ->as('contract.txt')
+                ->withMime('text/plain')
+        ];
     }
 }

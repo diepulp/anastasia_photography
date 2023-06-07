@@ -3,7 +3,6 @@
 @include('partials._hero')
 
 
-<body class="bg-gray-100">
 
   {{-- PROJECTS COMPONENT --}}
   <x-projects />
@@ -52,9 +51,6 @@
         </div> 
     </nav>
 
-
-
-</body>
 <!-- Button trigger modal -->
 @include('partials._modal')
 
