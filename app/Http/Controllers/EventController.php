@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -11,7 +12,11 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        // dd(Event::all());
+        return view('events.events', [
+
+            'events' => Event::all()
+        ]);
     }
 
     /**
@@ -21,6 +26,8 @@ class EventController extends Controller
     {
         //
         dd($request->all());
+        $path = $request->file('thumbnail')->store('images');
+        return 'Done ' . $path;
     }
 
     /**
@@ -28,16 +35,31 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
-        dd($request->all());
+        // dd($request->file('thumbnail'));
+        $formFields = $request->validate([
+            'title' => "required",
+            'location' => 'required',
+            'event_time' => 'required',
+            'thumbnail' => 'required|image',
+            'event_date' => 'required'
+        ]);
+
+        $formFields['thumbnail'] = $request->file('thumbnail')->store('thumbnails');
+        Event::create($formFields);
+        // $event->save($formFields);
+
+        return redirect('/admin');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Event $event)
     {
         //
+        return view('events.event', [
+            'event' => $event
+        ]);
     }
 
     /**
