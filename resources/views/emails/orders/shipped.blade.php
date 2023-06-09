@@ -1,5 +1,5 @@
 @props(['url' => "daydreamcreations.me"])
-<x-mail::header url="slot goed here">
+<x-mail::header url="">
 </x-mail::header>
 <x-mail::message url="URl ggoes here">
 # Hello, {{ $order->name}}

@@ -100,8 +100,9 @@ class OrderController extends Controller
 
 
         $attachment = public_path('storage/contract.txt');
+        $email = $order->email;
         //TODO: send a confirmation email
-        Mail::to('diepulp@gmail.com')->send(new OrderShipped($order, $attachment));
+        Mail::to($email)->send(new OrderShipped($order, $attachment));
 
 
         return redirect()->route('confirm', [$order]);

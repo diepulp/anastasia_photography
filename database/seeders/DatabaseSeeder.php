@@ -6,6 +6,7 @@ use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use \App\Models\Order;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,8 +25,10 @@ class DatabaseSeeder extends Seeder
         // Order::factory(5)->create();
 
         $user = User::factory()->create([
-            'name' => "Vladimir Ivanov",
-            'email' => 'mail@gmail.com'
+            'name' => "diepulp",
+            'email' => 'mail@gmail.com',
+            'password' => bcrypt('incongruous'),
+            'remember_token' => Str::random(10),
         ]);
         Order::factory(10)->create([
             'user_id' => $user->id

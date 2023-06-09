@@ -6,6 +6,7 @@ use App\Mail\OrderShipped;
 use Illuminate\Mail\Markdown;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
 use Symfony\Component\HttpFoundation\Request;
@@ -28,7 +29,7 @@ Route::get('/home', function () {
 Route::get('/mail/', function () {
     $markdown = new Markdown(view(), config('mail.markdown'));
 
-    return $markdown->render('emails.orders.shipped');
+    return $markdown->render('emails.orders.received');
 });
 
 Route::get('/about', function () {
@@ -58,6 +59,8 @@ Route::get('/login', [RegisterController::class, 'login']);
 // Authenticate user
 Route::post('/users/authenticate', [RegisterController::class, 'authenticate']);
 
+// Admin Section
+Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
 
 //Show the latest order that matches the id
 Route::get('/confirm/{order}', [OrderController::class, 'show'])->name('confirm');

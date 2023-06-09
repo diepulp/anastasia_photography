@@ -1,4 +1,4 @@
-<!-- <!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
 <head>
 <meta charset="utf-8">
@@ -6,34 +6,17 @@
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.15.0/mapbox-gl.js"></script>
+<script src="https://cdn.tailwindcss.com/3.3.0"></script>
 <style>
-body { margin: 0; padding: 0; }
-#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+/* body { margin: 0; padding: 0; }
+#map { position: absolute; top: 10; bottom: 20; width: 50%; } */
 </style>
+@vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body>
+	<div class="map-container flex flex-center">
+		<div class="w-32 h-32 " id="map"></div>
 
-<script>
-	// TO MAKE THE MAP APPEAR YOU MUST
-	// ADD YOUR ACCESS TOKEN FROM
-	// https://account.mapbox.com
-	mapboxgl.accessToken = 'YOUR_MAPBOX_ACCESS_TOKEN';
-const map = new mapboxgl.Map({
-container: 'map', // container ID
-// Choose from Mapbox's core styles, or make your own style with Mapbox Studio
-style: 'mapbox://styles/mapbox/streets-v12', // style URL
-center: [-122, 40], // starting position [lng, lat]
-zoom: 9 // starting zoom
-});
-</script>
- 
+	</div>
 </body>
-</html> -->
-
-
-
-<!-- <x-mapbox id="mapId" /> -->
-
-<!--  
-</body>
-</html> -->
+</html> 

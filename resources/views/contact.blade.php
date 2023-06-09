@@ -90,9 +90,9 @@
             </div>
           </div>
           <div class="md:mb-12 lg:mb-0">
-            <div class="relative rounded-lg shadow-lg map-container">
+            <div id="map" class="relative rounded-lg shadow-lg map-container">
               <!-- <iframe src="https://maps.google.com/maps?q=manhatan&t=&z=13&ie=UTF8&iwloc=&output=embed" class="absolute top-0 left-0 w-full h-full rounded-lg" frameborder="0" allowfullscreen></iframe> -->
-              <iframe width='100%' height='700px' src="https://api.mapbox.com/styles/v1/diepulp/clhtet64u00pq01po9b49cxar.html?title=false&access_token=pk.eyJ1IjoiZGllcHVscCIsImEiOiJjbGh0ZThwbzgxNzloM25vNWNsYWc1anNiIn0.pK8-aeHwcwxP3gAA_olvjA&zoomwheel=false#10.1/47.6143/-122.3132" title="Navigation-copy" style="border:none;"></iframe>
+              {{-- <iframe width='100%' height='700px' src="https://api.mapbox.com/styles/v1/diepulp/clhtet64u00pq01po9b49cxar.html?title=false&access_token=pk.eyJ1IjoiZGllcHVscCIsImEiOiJjbGh0ZThwbzgxNzloM25vNWNsYWc1anNiIn0.pK8-aeHwcwxP3gAA_olvjA&zoomwheel=false#10.1/47.6143/-122.3132" title="Navigation-copy" style="border:none;"></iframe> --}}
 
 
             </div>
@@ -102,9 +102,7 @@
     </div>
 
   </section>
-
-  <x-map />
-
+  <div id="map"></div>
 
 
 </x-layout>
