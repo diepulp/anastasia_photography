@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use GuzzleHttp\Psr7\UploadedFile;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 

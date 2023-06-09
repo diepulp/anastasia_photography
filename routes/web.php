@@ -7,6 +7,7 @@ use Illuminate\Mail\Markdown;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\RegisterController;
 use Symfony\Component\HttpFoundation\Request;
@@ -61,6 +62,7 @@ Route::post('/users/authenticate', [RegisterController::class, 'authenticate']);
 
 // Admin Section
 Route::get('/admin', [AdminController::class, 'index'])->middleware('admin');
+Route::post('/admin', [EventController::class, 'create'])->middleware('admin');
 
 //Show the latest order that matches the id
 Route::get('/confirm/{order}', [OrderController::class, 'show'])->name('confirm');

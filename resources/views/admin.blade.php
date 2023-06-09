@@ -1,8 +1,10 @@
 <x-layout>
-    <x-panel class=" mt-10 mx-5 ">
-        <div class="flex flex-center">
+    <x-panel class=" m-9 ">
+        <h3 class="font-semibold text-lg mx-auto">Publish a new event</h3>
+      
     <section class="px-6 py-8 flex flex-center">
-        <form action="/admin" method="post">
+        
+        <form action="/admin" method="post" enctype="multipart/form-data">
             @csrf
             <div class="mb-6">
                 <label 
@@ -14,6 +16,7 @@
                     type="text"
                     name="title"
                     id="title"
+                    value="{{old('title')}}"
                     required
                 >
                 @error('title')
@@ -31,6 +34,7 @@
                     type="text"
                     name="location"
                     id="location"
+                    value="{{old('location')}}"
                     required
                 >
                 @error('location')
@@ -48,6 +52,7 @@
                     type="text"
                     name="date"
                     id="date"
+                    value="{{old('date')}}"
                     required
                 >
                 @error('date')
@@ -61,33 +66,31 @@
                     for="time">
                  Select the time event takes place
                 </label>
-                <input type="time" class="border border-gray-400 p-2 w-full"
-                    type="text"
+                <input
+                    class="border border-gray-400 p-2 w-full"
+                    type="time"
                     name="time"
                     id="time"
+                    value="{{old('time')}}"
                     required
                 >
                 @error('time')
                     <p class="text-red-500 text-xs mt-2">{{$message}}</p>
                 @enderror
             </div>
-
-            <div class="mb-6">
-                <label 
-                    class="block mb-2 font-bold text-xs text-gray-600"
-                    for="title">
-                 Upload a thumbnail for the event
+            <div class="mb-4">
+                <label class="block mb-2 font-bold text-xs text-gray-600" 
+                       for="thumbnail">
+                       Upload an image for the event
                 </label>
-                <input type="text" class="border border-gray-400 p-2 w-full"
-                    type="text"
-                    name="title"
-                    id="title"
-                    
+                <input 
+                    type="file"
+                    name="thumbnail"
+                    id='thumbnail'
+                    id="thumbnail"
                 >
-                @error('title')
-                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
-                @enderror
             </div>
+          
             <x-button>Publish</x-button>
         </form>
         <div class="map-container flex flex-center">
@@ -95,8 +98,5 @@
     
         </div>
     </section>
-
-    
-</div>
     </x-panel>
 </x-layout>

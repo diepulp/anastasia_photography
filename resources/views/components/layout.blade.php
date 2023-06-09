@@ -60,7 +60,7 @@
 
 </div>
   <x-nav />
-  <div class="h-screen">
+  <div>
     {{ $slot }}
   </div>
  
