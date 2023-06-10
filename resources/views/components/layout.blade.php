@@ -36,7 +36,7 @@
 
   <!-- Tailwind CSS config -->
   <script src="https://cdn.tailwindcss.com/3.3.0"></script>
-  <script>
+  {{-- <script>
     tailwind.config = {
       darkMode: "class",
       theme: {
@@ -50,7 +50,7 @@
         preflight: false,
       },
     };
-  </script>
+  </script> --}}
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 

@@ -64,7 +64,7 @@ Route::get('/events', [EventController::class, 'index'])->name('events');
 Route::post('/events', [EventController::class, 'store']);
 
 //Single event
-Route::get('/events/{event}', [EventController::class, 'show']);
+Route::get('/show/{event}', [EventController::class, 'show']);
 
 //Show the latest order that matches the id (should be last)
 Route::get('/confirm/{order}', [OrderController::class, 'index'])->name('confirm');

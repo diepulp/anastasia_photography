@@ -46,6 +46,24 @@
             <div class="mb-6">
                 <label 
                     class="block mb-2 font-bold text-xs text-gray-600"
+                    for="title">
+                 Event description
+                </label>
+                <textarea type="text" class="border rounded border-gray-400 p-2 w-full"
+                    type="text"
+                    name="description"
+                    id="description"
+                    value="{{old('description')}}"
+                    required
+                ></textarea>
+                @error('title')
+                    <p class="text-red-500 text-xs mt-2">{{$message}}</p>
+                @enderror
+            </div>
+
+            <div class="mb-6">
+                <label 
+                    class="block mb-2 font-bold text-xs text-gray-600"
                     for="event_date">
                  Select a date for an event
                 </label>

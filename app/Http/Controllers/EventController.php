@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 
 class EventController extends Controller
 {
@@ -13,7 +14,7 @@ class EventController extends Controller
     public function index()
     {
         // dd(Event::all());
-        return view('events.events', [
+        return view('events.index', [
 
             'events' => Event::all()
         ]);
@@ -41,10 +42,12 @@ class EventController extends Controller
             'location' => 'required',
             'event_time' => 'required',
             'thumbnail' => 'required|image',
-            'event_date' => 'required'
+            'event_date' => 'required',
+            'description' => "required"
         ]);
 
         $formFields['thumbnail'] = $request->file('thumbnail')->store('thumbnails');
+        $formFields['published_on'] = Carbon::now();
         Event::create($formFields);
         // $event->save($formFields);
 
@@ -57,7 +60,7 @@ class EventController extends Controller
     public function show(Event $event)
     {
         //
-        return view('events.event', [
+        return view('events.show', [
             'event' => $event
         ]);
     }
