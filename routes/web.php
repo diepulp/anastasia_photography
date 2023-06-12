@@ -27,6 +27,9 @@ Route::get('/about', function () {
     return view('about');
 });
 
+// Modal
+Route::get('/modal', fn () => view('components.modal'));
+
 
 
 Route::get('/gallery', fn () => view('gallery'));

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Event;
+use Carbon\CarbonInterval;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
 
@@ -48,8 +49,12 @@ class EventController extends Controller
 
         $formFields['thumbnail'] = $request->file('thumbnail')->store('thumbnails');
         $formFields['published_on'] = Carbon::now();
+
+        // $timeForHumans = CarbonInterval::createFromFormat('Y:m', $request->event_date->toTimeString())->forHumans();
+        // $formFilds['event_date'] = $timeForHumans;
+        // dd($timeForHumans);
         Event::create($formFields);
-        // $event->save($formFields);
+
 
         return redirect('/admin');
     }
@@ -59,7 +64,7 @@ class EventController extends Controller
      */
     public function show(Event $event)
     {
-        //
+
         return view('events.show', [
             'event' => $event
         ]);
