@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <title>Anastasiya Photography</title>
   {{-- Favicaon --}}
   <link rel="icon" href="images/favicon.ico" />
@@ -37,6 +38,9 @@
 
   <!-- Tailwind CSS config -->
   <script src="https://cdn.tailwindcss.com/3.3.0"></script>
+
+  {{-- Axios --}}
+  <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   {{-- <script>
     tailwind.config = {
       darkMode: "class",
@@ -55,22 +59,16 @@
   @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body >
-<div class="sticky top-0">
-  {{-- <a href="#footer">Go to footer</a> --}}
+  <body class="flex flex-col min-h-screen">
+    <x-nav />
+    <div>
+      {{ $slot }}
+    </div>
+    <x-flash />
+    <x-footer />
 
-</div>
-  <x-nav />
-  <div>
-    {{ $slot }}
-  </div>
- 
+    <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
 
-  <x-flash />
-  <x-footer />
-
-  <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/tw-elements.umd.min.js"></script>
-
-</body>
+  </body>
 
 </html>

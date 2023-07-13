@@ -4,6 +4,7 @@ use App\Models\Order;
 use App\Models\Booking;
 use App\Mail\OrderShipped;
 use Illuminate\Mail\Markdown;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\EventController;
@@ -23,9 +24,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Playground_______________________________________________________
+Route::get('playground', fn () => view('playground'));
+Route::post('/playground', function () {
+    $markdown = request('markdown');
+    dd($markdown);
+    dd(request()->markdown);
+});
+
 Route::get('/about', function () {
     return view('about');
 });
+
+// Gallery 
+Route::get('/nika', fn () => view('nika'));
 
 // Modal
 Route::get('/modal', fn () => view('components.modal'));
@@ -86,4 +98,4 @@ Route::get('/confirm/{order}', [OrderController::class, 'index'])->name('confirm
 // Route::get('/home', function () {
 //     return view('home');
 // });
-// Route::get('/map', fn () => view('components.map'));
+Route::get('/map', fn () => view('components.map'));

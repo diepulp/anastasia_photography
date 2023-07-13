@@ -10,7 +10,7 @@ style="
   style="background-color: rgba(0, 0, 0, 0.75)">
   <div class="flex items-center justify-center h-full">
     <div class="px-6 text-center text-white md:px-12">
-      <h1 class="mb-6 text-2xl underline underline-offset-8">Anastasiya Ivanova Photography</h1>
+      <h1 class="mb-6 text-2xl underline underline-offset-8">Daydream Creations Photography</h1>
      
       <a
         type="button"

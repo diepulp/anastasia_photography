@@ -6,3 +6,12 @@
 html {
     scroll-behavior: smooth;
 }
+
+#grid-ish{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#grid-ish > * {
+    flex: 1 1 10em;
+}
